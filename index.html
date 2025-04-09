@@ -46,6 +46,7 @@
 
   <button onclick="playHorn()">🔊 Гудок поезда</button>
   <button onclick="playBurp()">🤢 Жёсткая отрыжка</button>
+  <button onclick="playBruh()">🧠 BRUH</button>
 
   <audio id="hornSound" preload="auto">
     <source src="giudok-poezda.mp3" type="audio/mpeg">
@@ -54,6 +55,11 @@
 
   <audio id="burpSound" preload="auto">
     <source src="zhiostkaia-otryzhka.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
+
+  <audio id="bruhSound" preload="auto">
+    <source src="brue[1].mp3" type="audio/mpeg">
     Ваш браузер не поддерживает аудио.
   </audio>
 
@@ -74,6 +80,15 @@
         console.error('Ошибка воспроизведения отрыжки:', error);
       });
       document.body.style.backgroundImage = "url('inline_image_preview.avif')";
+    }
+
+    function playBruh() {
+      const bruh = document.getElementById('bruhSound');
+      bruh.currentTime = 0;
+      bruh.play().catch(error => {
+        console.error('Ошибка воспроизведения BRUH:', error);
+      });
+      document.body.style.backgroundImage = "url('bruh-sw84kgajz3zo3ohd.jpg')";
     }
   </script>
 
