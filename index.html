@@ -59,36 +59,37 @@
   </audio>
 
   <audio id="bruhSound" preload="auto">
+    <!-- Замените ссылку ниже на свой рабочий файл, если нужно -->
     <source src="brue.mp3" type="audio/mpeg">
     Ваш браузер не поддерживает аудио.
   </audio>
 
   <script>
-    function playHorn() {
-      const horn = document.getElementById('hornSound');
-      horn.currentTime = 0;
-      horn.play().catch(error => {
-        console.error('Ошибка воспроизведения гудка:', error);
+    function playSound(id, bgImage) {
+      const sound = document.getElementById(id);
+      if (!sound) {
+        console.error("Аудиоэлемент не найден:", id);
+        return;
+      }
+      sound.currentTime = 0;
+      sound.play().catch(error => {
+        console.error(`Ошибка воспроизведения (${id}):`, error);
       });
-      document.body.style.backgroundImage = "url('1200px-Д1-749_(cropped).jpg')";
+      if (bgImage) {
+        document.body.style.backgroundImage = `url('${bgImage}')`;
+      }
+    }
+
+    function playHorn() {
+      playSound('hornSound', '1200px-Д1-749_(cropped).jpg');
     }
 
     function playBurp() {
-      const burp = document.getElementById('burpSound');
-      burp.currentTime = 0;
-      burp.play().catch(error => {
-        console.error('Ошибка воспроизведения отрыжки:', error);
-      });
-      document.body.style.backgroundImage = "url('inline_image_preview.avif')";
+      playSound('burpSound', 'inline_image_preview.avif');
     }
 
     function playBruh() {
-      const bruh = document.getElementById('bruhSound');
-      bruh.currentTime = 0;
-      bruh.play().catch(error => {
-        console.error('Ошибка воспроизведения BRUH:', error);
-      });
-      document.body.style.backgroundImage = "url('bruh-sw84kgajz3zo3ohd.jpg')";
+      playSound('bruhSound', 'bruh-sw84kgajz3zo3ohd.jpg');
     }
   </script>
 
